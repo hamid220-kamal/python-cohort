@@ -25,14 +25,23 @@ export function StarBackground() {
       speedX: number;
       speedY: number;
       opacity: number;
+      colorPrefix: string;
 
       constructor() {
         this.x = Math.random() * (canvas?.width || 0);
         this.y = Math.random() * (canvas?.height || 0);
-        this.size = Math.random() * 2;
-        this.speedX = (Math.random() - 0.5) * 0.5;
-        this.speedY = (Math.random() - 0.5) * 0.5;
-        this.opacity = Math.random() * 0.5 + 0.2;
+        this.size = Math.random() * 2.5; // Slightly larger for higher fidelity
+        this.speedX = (Math.random() - 0.5) * 0.4;
+        this.speedY = (Math.random() - 0.5) * 0.4;
+        this.opacity = Math.random() * 0.6 + 0.2;
+        
+        // Multi-color cyber obsidian particles: Hyper-Violet, Radiant Teal, Neon Rose
+        const themeColors = [
+          'rgba(139, 92, 246, ', // Electric Blue / Violet
+          'rgba(20, 184, 166, ', // Cyan Accent / Teal
+          'rgba(244, 63, 94, '   // Neon Rose / Cyber Pink
+        ];
+        this.colorPrefix = themeColors[Math.floor(Math.random() * themeColors.length)];
       }
 
       update() {
@@ -49,7 +58,7 @@ export function StarBackground() {
 
       draw() {
         if (!ctx) return;
-        ctx.fillStyle = `rgba(59, 130, 246, ${this.opacity})`;
+        ctx.fillStyle = `${this.colorPrefix}${this.opacity})`;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.fill();

@@ -240,17 +240,17 @@ export function AIAtlas({ onClose }: { onClose?: () => void }) {
   }, [searchQuery]);
 
   return (
-    <div className="min-h-screen bg-navy-dark text-white font-sans selection:bg-cyan-accent/30">
+    <div className="min-h-screen bg-[#0A0A0E] text-white font-sans selection:bg-electric-blue/30">
       {/* Atlas Header */}
-      <nav className="fixed top-0 left-0 right-0 z-[100] bg-navy-dark/90 backdrop-blur-xl border-b border-white/5 px-6 py-4">
+      <nav className="fixed top-0 left-0 right-0 z-[100] bg-[#0A0A0E]/95 backdrop-blur-2xl border-b border-white/[0.08] px-6 py-4">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-cyan-accent rounded-lg flex items-center justify-center">
-              <Globe className="text-navy-dark" size={24} />
+            <div className="w-10 h-10 bg-electric-blue rounded-lg flex items-center justify-center">
+              <Globe className="text-white" size={22} />
             </div>
             <div>
-              <h1 className="font-display font-bold text-xl leading-none">AI Atlas</h1>
-              <p className="text-[10px] text-cyan-accent uppercase tracking-widest font-bold">Interactive Guide</p>
+              <h1 className="font-display font-bold text-xl leading-none tracking-tight">Advanced Python Atlas</h1>
+              <p className="text-[10px] text-electric-blue uppercase tracking-widest font-bold font-mono">Advanced Python Companion</p>
             </div>
           </div>
           
@@ -259,8 +259,8 @@ export function AIAtlas({ onClose }: { onClose?: () => void }) {
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
-                className={`px-4 py-2 rounded-lg text-sm font-bold transition-all ${
-                  activeTab === tab ? 'bg-cyan-accent text-navy-dark shadow-lg shadow-cyan-accent/20' : 'text-white/40 hover:text-white hover:bg-white/5'
+                className={`px-4 py-2 rounded-lg text-sm font-bold transition-all cursor-pointer ${
+                  activeTab === tab ? 'bg-electric-blue text-white shadow-lg shadow-electric-blue/25' : 'text-white/40 hover:text-white hover:bg-white/5'
                 }`}
               >
                 {tab}
@@ -270,7 +270,7 @@ export function AIAtlas({ onClose }: { onClose?: () => void }) {
 
           <button 
             onClick={onClose}
-            className="w-10 h-10 glass rounded-full flex items-center justify-center hover:bg-white/10 transition-all text-white/50 hover:text-white"
+            className="w-10 h-10 glass rounded-full flex items-center justify-center hover:bg-white/10 transition-all text-white/50 hover:text-white cursor-pointer"
           >
             <X size={20} />
           </button>
@@ -630,7 +630,7 @@ export function AIAtlas({ onClose }: { onClose?: () => void }) {
                           key={tool.name}
                           href={tool.link}
                           target="_blank"
-                          rel="noreferrer"
+                          rel="noopener noreferrer"
                           className="glass p-6 rounded-3xl group border-b-4 border-b-transparent hover:border-b-cyan-accent transition-all"
                         >
                            <div className="flex justify-between items-start mb-4">
@@ -737,22 +737,18 @@ export function AIAtlas({ onClose }: { onClose?: () => void }) {
       </main>
 
       {/* Atlas Footer */}
-      <footer className="py-24 px-6 border-t border-white/5 bg-navy-dark/80">
+      <footer className="py-16 px-6 bg-[#0A0A0E]">
          <div className="max-w-7xl mx-auto flex flex-col items-center text-center">
-            <div className="flex items-center gap-2 mb-8">
-               <Globe className="text-cyan-accent" size={32} />
-               <span className="font-display font-bold text-3xl tracking-tighter">AI Atlas</span>
+            <div className="flex items-center gap-2 mb-6">
+               <Globe className="text-electric-blue" size={28} />
+               <span className="font-display font-bold text-2xl tracking-tighter text-gradient-purple-green">Advanced Python</span>
             </div>
-            <div className="flex flex-wrap justify-center gap-x-12 gap-y-6 mb-16 text-white/40 text-sm font-bold uppercase tracking-widest">
-               <a href="https://github.com/hamid220-kamal" target="_blank" rel="noreferrer" className="hover:text-white transition-colors flex items-center gap-2">
-                 <Github size={16} /> GitHub
+            <div className="flex justify-center mb-8">
+               <a href="https://github.com/hamid220-kamal" target="_blank" rel="noopener noreferrer" className="text-white/40 hover:text-white transition-colors flex items-center gap-2 text-xs uppercase tracking-widest font-bold">
+                 <Github size={14} /> GitHub
                </a>
-               <a href="#" className="hover:text-white transition-colors">Ethics & Safety</a>
-               <a href="#" className="hover:text-white transition-colors">Case Studies</a>
-               <a href="#" className="hover:text-white transition-colors">AI News</a>
-               <a href="#" className="hover:text-white transition-colors">Community</a>
             </div>
-            <p className="text-white/20 text-xs uppercase tracking-[0.5em] mb-4">Produced by LEt's lEaRN Academy &bull; 2026</p>
+            <p className="text-white/20 text-xs uppercase tracking-[0.5em] mb-4 font-mono">Produced by Advanced Python Academy &bull; 2026</p>
             <p className="max-w-xl text-white/30 text-sm">"AI isn't here to replace humans, but to replace human effort. Those who leverage AI will be significantly more effective than those who don't."</p>
          </div>
       </footer>

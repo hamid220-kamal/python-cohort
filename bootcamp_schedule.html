@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>The Monthly Code Club - 90-Day Python & AI Engineer Bootcamp Schedule</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Space+Grotesk:wght@300..700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
+        :root {
+            --bg-base: #030306;
+            --color-primary: #8b5cf6;     /* Vibrant Hyper-Violet */
+            --color-secondary: #14b8a6;   /* Radiant Teal/Emerald */
+            --color-accent: #f43f5e;      /* Neon Rose */
+            --text-main: #f4f4f5;
+            --text-muted: #a1a1aa;
+            --border-glow: rgba(139, 92, 246, 0.15);
+            --card-bg: rgba(255, 255, 255, 0.02);
+            --card-border: rgba(255, 255, 255, 0.06);
+            --table-header: rgba(139, 92, 246, 0.08);
+            --table-row-even: rgba(255, 255, 255, 0.015);
+        }
+
+        @page {
+            size: A4;
+            margin: 12mm 10mm;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 20px;
+            background-color: var(--bg-base);
+            background-image: 
+                radial-gradient(circle at 50% -10%, rgba(139, 92, 246, 0.15) 0%, rgba(3, 3, 6, 0) 65%),
+                radial-gradient(circle at 100% 100%, rgba(20, 184, 166, 0.06) 0%, rgba(3, 3, 6, 0) 55%),
+                radial-gradient(circle at 0% 50%, rgba(244, 63, 94, 0.03) 0%, rgba(3, 3, 6, 0) 45%);
+            background-attachment: fixed;
+            color: var(--text-main);
+            font-family: 'Plus Jakarta Sans', -apple-system, system-ui, sans-serif;
+            font-size: 9pt;
+            line-height: 1.5;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        .header-container {
+            border-bottom: 2px solid var(--color-primary);
+            padding-bottom: 16px;
+            margin-bottom: 24px;
+            position: relative;
+        }
+
+        .header-container::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100px;
+            height: 2px;
+            background: var(--color-secondary);
+            box-shadow: 0 0 10px var(--color-secondary);
+        }
+
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 19pt;
+            font-weight: 800;
+            color: #ffffff;
+            margin: 0 0 6px 0;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #ffffff 30%, #a855f7 70%, #14b8a6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 9.5pt;
+            color: var(--color-secondary);
+            font-weight: 700;
+            margin: 0 0 6px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 0 0 8px rgba(20, 184, 166, 0.2);
+        }
+
+        .meta-grid {
+            width: 100%;
+            margin-top: 12px;
+            font-size: 8.5pt;
+            color: var(--text-muted);
+            border-collapse: collapse;
+        }
+
+        .meta-grid td {
+            padding: 3px 0;
+        }
+
+        .meta-grid strong {
+            color: #ffffff;
+        }
+
+        .math-box {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-left: 4px solid var(--color-primary);
+            box-shadow: 0 4px 30px rgba(139, 92, 246, 0.03);
+            padding: 12px 16px;
+            margin-bottom: 24px;
+            border-radius: 8px;
+            backdrop-filter: blur(12px);
+        }
+
+        .math-box h2 {
+            margin: 0 0 8px 0;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 11pt;
+            font-weight: 700;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .math-box p {
+            margin: 4px 0;
+            color: #d4d4d8;
+            font-size: 9pt;
+        }
+
+        .math-box strong {
+            color: #ffffff;
+        }
+
+        .math-equation {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+            color: var(--color-secondary);
+            text-shadow: 0 0 8px rgba(20, 184, 166, 0.15);
+        }
+
+        h2.phase-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 12pt;
+            font-weight: 700;
+            color: #ffffff;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding-bottom: 6px;
+            margin-top: 24px;
+            margin-bottom: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            page-break-after: avoid;
+        }
+
+        h2.phase-title span {
+            color: var(--color-primary);
+            text-shadow: 0 0 10px rgba(139, 92, 246, 0.3);
+        }
+
+        table.schedule-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-bottom: 24px;
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        table.schedule-table th {
+            background-color: var(--table-header);
+            border-bottom: 1px solid var(--card-border);
+            border-right: 1px solid var(--card-border);
+            color: #ffffff;
+            font-family: 'Space Grotesk', sans-serif;
+            text-align: left;
+            font-weight: 700;
+            font-size: 8.5pt;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 8px 10px;
+        }
+
+        table.schedule-table th:last-child {
+            border-right: none;
+        }
+
+        table.schedule-table td {
+            padding: 8px 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            border-right: 1px solid rgba(255, 255, 255, 0.04);
+            font-size: 8.5pt;
+            vertical-align: top;
+            transition: background-color 0.2s ease;
+        }
+
+        table.schedule-table td:last-child {
+            border-right: none;
+        }
+
+        table.schedule-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        table.schedule-table tr:nth-child(even) {
+            background-color: var(--table-row-even);
+        }
+
+        table.schedule-table tr {
+            page-break-inside: avoid;
+        }
+
+        .session-col {
+            width: 11%;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+            color: var(--color-secondary);
+        }
+
+        .day-col {
+            width: 17%;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--text-muted);
+            font-size: 8pt;
+        }
+
+        .topic-col {
+            width: 44%;
+            color: #ffffff;
+            font-weight: 600;
+        }
+
+        .details-col {
+            width: 28%;
+            color: #d4d4d8;
+            font-size: 8.5pt;
+        }
+
+        .project-badge {
+            background-color: rgba(20, 184, 166, 0.08);
+            border: 1px solid rgba(20, 184, 166, 0.2);
+            color: var(--color-secondary);
+            display: inline-block;
+            padding: 2px 6px;
+            font-size: 7.5pt;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 600;
+            border-radius: 4px;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .mega-badge {
+            background-color: rgba(244, 63, 94, 0.08);
+            border: 1px solid rgba(244, 63, 94, 0.2);
+            color: var(--color-accent);
+            display: inline-block;
+            padding: 3px 8px;
+            font-size: 8pt;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+            border-radius: 4px;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+            box-shadow: 0 0 10px rgba(244, 63, 94, 0.1);
+        }
+
+        .page-break {
+            page-break-before: always;
+        }
+
+        .footer-note {
+            margin-top: 32px;
+            border-top: 1px solid var(--card-border);
+            padding-top: 12px;
+            font-size: 8pt;
+            color: var(--text-muted);
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        /* --- Adaptive Print Stylesheets --- */
+        @media print {
+            :root {
+                --bg-base: #ffffff;
+                --color-primary: #6d28d9;    /* Clean print purple */
+                --color-secondary: #0f766e;  /* Clean print teal */
+                --color-accent: #be123c;     /* Clean print rose */
+                --text-main: #0f172a;
+                --text-muted: #475569;
+                --border-glow: transparent;
+                --card-bg: #f8fafc;
+                --card-border: #cbd5e1;
+                --table-header: #f1f5f9;
+                --table-row-even: #f8fafc;
+            }
+
+            body {
+                background-color: #ffffff !important;
+                background-image: none !important;
+                color: #0f172a !important;
+                padding: 0 !important;
+            }
+
+            .header-container {
+                border-bottom: 2px solid #6d28d9 !important;
+            }
+
+            .header-container::after {
+                background: #0f766e !important;
+                box-shadow: none !important;
+            }
+
+            h1 {
+                background: none !important;
+                -webkit-background-clip: initial !important;
+                -webkit-text-fill-color: initial !important;
+                color: #0f172a !important;
+            }
+
+            .subtitle {
+                color: #0f766e !important;
+                text-shadow: none !important;
+            }
+
+            .meta-grid td {
+                color: #334155 !important;
+            }
+
+            .meta-grid strong {
+                color: #0f172a !important;
+            }
+
+            .math-box {
+                background-color: #f8fafc !important;
+                border: 1px solid #cbd5e1 !important;
+                border-left: 4px solid #6d28d9 !important;
+                box-shadow: none !important;
+            }
+
+            .math-box h2 {
+                color: #0f172a !important;
+            }
+
+            .math-box p {
+                color: #334155 !important;
+            }
+
+            .math-box strong {
+                color: #0f172a !important;
+            }
+
+            .math-equation {
+                color: #0f766e !important;
+                text-shadow: none !important;
+            }
+
+            h2.phase-title {
+                color: #0f172a !important;
+                border-bottom: 1px solid #cbd5e1 !important;
+            }
+
+            h2.phase-title span {
+                color: #6d28d9 !important;
+                text-shadow: none !important;
+            }
+
+            table.schedule-table {
+                border: 1px solid #cbd5e1 !important;
+                box-shadow: none !important;
+            }
+
+            table.schedule-table th {
+                background-color: #f1f5f9 !important;
+                border-bottom: 1px solid #cbd5e1 !important;
+                border-right: 1px solid #cbd5e1 !important;
+                color: #0f172a !important;
+            }
+
+            table.schedule-table td {
+                border-bottom: 1px solid #cbd5e1 !important;
+                border-right: 1px solid #cbd5e1 !important;
+                color: #334155 !important;
+            }
+
+            table.schedule-table tr:nth-child(even) {
+                background-color: #f8fafc !important;
+            }
+
+            .session-col {
+                color: #0f766e !important;
+            }
+
+            .day-col {
+                color: #475569 !important;
+            }
+
+            .topic-col {
+                color: #0f172a !important;
+            }
+
+            .details-col {
+                color: #334155 !important;
+            }
+
+            .project-badge {
+                background-color: #f0fdfa !important;
+                border: 1px solid #5eead4 !important;
+                color: #0f766e !important;
+            }
+
+            .mega-badge {
+                background-color: #fff1f2 !important;
+                border: 1px solid #fecdd3 !important;
+                color: #be123c !important;
+                box-shadow: none !important;
+            }
+
+            .footer-note {
+                border-top: 1px solid #cbd5e1 !important;
+                color: #475569 !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <div class="header-container">
+        <div class="subtitle">Official Syllabus Framework & 90-Day Timeline</div>
+        <h1>The 90-Day Python Mastery & AI Engineer Bootcamp</h1>
+        <table class="meta-grid">
+            <tr>
+                <td style="width: 50%;"><strong>Mentor:</strong> Hamid Kamal (Co-Founder, CNC Jugaaadi)</td>
+                <td style="width: 50%; text-align: right;"><strong>Inbound Channel:</strong> +91 8332059777 (Text Only)</td>
+            </tr>
+            <tr>
+                <td><strong>Session Duration:</strong> 1.5 Hours Daily (30m Core Architecture / 60m Live Code)</td>
+                <td style="width: 50%; text-align: right;"><strong>Official Email:</strong> buildwithhamid@gmail.com</td>
+            </tr>
+            <tr>
+                <td><strong>Frequency:</strong> 5 Days/Week (Monday to Friday, Weekends/Holidays Excluded)</td>
+                <td style="width: 50%; text-align: right;"><strong>Launch Baseline:</strong> Monday, May 25, 2026</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Mathematical Blueprint Box -->
+    <div class="math-box">
+        <h2>The 90-Day "Basics to Hardcore AI" Structural Architecture</h2>
+        <p>Combining the 13 core modules of Python foundations with an intensive 4 Core Mega Projects open-source AI portfolio builder marathon. Spanned dynamically across 18 weeks (excluding weekends).</p>
+        <p>• <strong>Phase 1 (Sessions 01-15)</strong>: <span class="math-equation">15 Days Theory & Basic Projects</span> — Complete core syntax, OOP, files, and virtualenv package trees.</p>
+        <p>• <strong>Phases 2-5 (Sessions 16-90)</strong>: <span class="math-equation">75 Days AI Engineering & 4 Core Mega Projects</span> — LLM APIs, Vector DBs, RAG, CrewAI, LangGraph, and MLOps.</p>
+    </div>
+
+    <!-- PHASE 1 -->
+    <h2 class="phase-title"><span>Phase 1:</span> Core Python Programming Foundations (Weeks 1 - 3)</h2>
+    <table class="schedule-table">
+        <thead>
+            <tr>
+                <th class="session-col">Session</th>
+                <th class="day-col">Calendar Date</th>
+                <th class="topic-col">Core Subject Matrix</th>
+                <th class="details-col">Practical Deliverable / Target</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="session-col">Session 01</td>
+                <td class="day-col">May 25, 2026 (Mon)</td>
+                <td class="topic-col">Module 01: Setup & Python Basics</td>
+                <td class="details-col">Interpreter download, VS Code setups, path setups & Pip.</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 02</td>
+                <td class="day-col">May 26, 2026 (Tue)</td>
+                <td class="topic-col">Module 02: Variables & Data Types</td>
+                <td class="details-col">Memory pointers, primitive types, dynamic casting & user inputs.</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 03</td>
+                <td class="day-col">May 27, 2026 (Wed)</td>
+                <td class="topic-col">Module 03: Strings & Advanced Slicing</td>
+                <td class="details-col">String slicing skip steps, negative indices & string methods.</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 04</td>
+                <td class="day-col">May 28, 2026 (Thu)</td>
+                <td class="topic-col">Module 04: Lists & Tuples</td>
+                <td class="details-col">Mutable lists, commas tuple rules, mark marks marks markers sorting lists.</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 05</td>
+                <td class="day-col">May 29, 2026 (Fri)</td>
+                <td class="topic-col">Module 05: Dictionaries & Sets</td>
+                <td class="details-col">Key-value hash maps, sets algebra & filtering duplicates.</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 06</td>
+                <td class="day-col">Jun 01, 2026 (Mon)</td>
+                <td class="topic-col">Module 06: Conditional Expressions</td>
+                <td class="details-col">If-Elif-Else execution branch paths & logical operators.</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 07</td>
+                <td class="day-col">Jun 02, 2026 (Tue)</td>
+                <td class="topic-col">Module 07: Loops in Python</td>
+                <td class="details-col">While loops, range iterations, break/continue guards.</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 08</td>
+                <td class="day-col">Jun 03, 2026 (Wed)</td>
+                <td class="topic-col">Module 08: Functions & Recursions</td>
+                <td class="details-col">Reusable scopes (LEGB rules) & recursive math solvers.</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 09</td>
+                <td class="day-col">Jun 04, 2026 (Thu)</td>
+                <td class="topic-col">Module 09: File Input/Output</td>
+                <td class="details-col">File reading, stream buffers, and high-score persist auto-update.</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 10</td>
+                <td class="day-col">Jun 05, 2026 (Fri)</td>
+                <td class="topic-col">Module 10: OOP Foundations</td>
+                <td class="details-col">Class attributes, instance variables & constructors (__init__).</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 11</td>
+                <td class="day-col">Jun 08, 2026 (Mon)</td>
+                <td class="topic-col">Module 11: Inheritance & Advanced OOP</td>
+                <td class="details-col">Multilevel inheritance, super(), and dunder overloading.</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 12</td>
+                <td class="day-col">Jun 09, 2026 (Tue)</td>
+                <td class="topic-col">Module 12: Advanced Python 1</td>
+                <td class="details-col">Walrus (:=), match-case, try-except blocks & main imports.</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 13</td>
+                <td class="day-col">Jun 10, 2026 (Wed)</td>
+                <td class="topic-col">Module 13: Advanced Python 2</td>
+                <td class="details-col">Virtualenv pip freeze, Map/Filter/Reduce & print formatting.</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 14</td>
+                <td class="day-col">Jun 11, 2026 (Thu)</td>
+                <td class="topic-col">Core Foundational Projects - Part 1</td>
+                <td class="details-col">
+                    <span class="project-badge">Foundational</span><br>
+                    Snake Water Gun game, CLI string utilities & CLI tools.
+                </td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 15</td>
+                <td class="day-col">Jun 12, 2026 (Fri)</td>
+                <td class="topic-col">Core Foundational Projects - Part 2</td>
+                <td class="details-col">
+                    <span class="project-badge">Foundational</span><br>
+                    The Perfect Guess game & isolated package freezers.
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="page-break"></div>
+
+    <!-- PHASE 2 -->
+    <h2 class="phase-title"><span>Phase 2:</span> LLM APIs & Advanced AI Foundations (Weeks 4 - 7)</h2>
+    <table class="schedule-table">
+        <thead>
+            <tr>
+                <th class="session-col">Session</th>
+                <th class="day-col">Calendar Date</th>
+                <th class="topic-col">Core Subject Matrix</th>
+                <th class="details-col">Practical Deliverable / Target</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="session-col">Session 16</td>
+                <td class="day-col">Jun 15, 2026 (Mon)</td>
+                <td class="topic-col" rowspan="2">AI Project 01: Intelligent CLI Git Commit Generator</td>
+                <td class="details-col" rowspan="2">Using LLM APIs to read git diff buffers and auto-compile conventional commit messages.</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 17</td>
+                <td class="day-col">Jun 16, 2026 (Tue)</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 18</td>
+                <td class="day-col">Jun 17, 2026 (Wed)</td>
+                <td class="topic-col" rowspan="2">AI Project 02: Dynamic AI Resume Tailor & Cover Letter Builder</td>
+                <td class="details-col" rowspan="2">Uses structured system prompts to rewrite Markdown resumes aligned with target job roles.</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 19</td>
+                <td class="day-col">Jun 18, 2026 (Thu)</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 20</td>
+                <td class="day-col">Jun 19, 2026 (Fri)</td>
+                <td class="topic-col" rowspan="2">AI Project 03: Spam Comment Classification Regex & LLM Filter</td>
+                <td class="details-col" rowspan="2">A hybrid rule-based and neural regex classification engine for automated moderation pipelines.</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 21</td>
+                <td class="day-col">Jun 22, 2026 (Mon)</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 22</td>
+                <td class="day-col">Jun 23, 2026 (Tue)</td>
+                <td class="topic-col" rowspan="2">AI Project 04: Local Markdown Translation & Localization Engine</td>
+                <td class="details-col" rowspan="2">Translating multiple markdown manuals asynchronously with retry limits and rate-limit managers.</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 23</td>
+                <td class="day-col">Jun 24, 2026 (Wed)</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 24</td>
+                <td class="day-col">Jun 25, 2026 (Thu)</td>
+                <td class="topic-col" rowspan="2">AI Project 05: Smart File Organizer & Automated Log Synthesizer</td>
+                <td class="details-col" rowspan="2">Background filesystem workers that cluster files and compile daily action reports using AI semantic tags.</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 25</td>
+                <td class="day-col">Jun 26, 2026 (Fri)</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 26</td>
+                <td class="day-col">Jun 29, 2026 (Mon)</td>
+                <td class="topic-col" rowspan="2">AI Project 06: Voice-Activated Desktop Command Daemon</td>
+                <td class="details-col" rowspan="2">Whisper audio capture bound to OS controls, translating voice inputs to screen macro triggers via PyAutoGUI.</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 27</td>
+                <td class="day-col">Jun 30, 2026 (Tue)</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 28</td>
+                <td class="day-col">Jul 01, 2026 (Wed)</td>
+                <td class="topic-col" rowspan="2">AI Project 07: PDF Financial Report Text-Miner & Excel Compiler</td>
+                <td class="details-col" rowspan="2">Extracting tabular balance sheets from scanned PDFs and sorting them into styled multi-sheet Excel files.</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 29</td>
+                <td class="day-col">Jul 02, 2026 (Thu)</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 30</td>
+                <td class="day-col">Jul 03, 2026 (Fri)</td>
+                <td class="topic-col" rowspan="2">AI Project 08: GitHub Issue Automated Responder Bot</td>
+                <td class="details-col" rowspan="2">Automated webhook agent that matches GitHub issues with codebase structures and posts reference links.</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 31</td>
+                <td class="day-col">Jul 06, 2026 (Mon)</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 32</td>
+                <td class="day-col">Jul 07, 2026 (Tue)</td>
+                <td class="topic-col" rowspan="2">AI Project 09: Dynamic SQL Query Builder & Schema Validation Layer</td>
+                <td class="details-col" rowspan="2">Parsing dynamic schemas to convert English questions to safe execution SQL scripts without data risk.</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 33</td>
+                <td class="day-col">Jul 08, 2026 (Wed)</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 34</td>
+                <td class="day-col">Jul 09, 2026 (Thu)</td>
+                <td class="topic-col">AI Project 10: AI-Powered CLI Markdown Slideshow Creator</td>
+                <td class="details-col">Generating complete reveal.js outline schemas from standard CLI text prompts. (1 Day)</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 35</td>
+                <td class="day-col">Jul 10, 2026 (Fri)</td>
+                <td class="topic-col">AI Project 11: Real-time Terminal Token Streaming Speed Reader</td>
+                <td class="details-col">Custom CLI streaming layout tool rendering words sequentially at adjustable Spritz WPM limits. (1 Day)</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="page-break"></div>
+
+    <!-- PHASE 3 -->
+    <h2 class="phase-title"><span>Phase 3:</span> RAG Systems & Vector Databases (Weeks 8 - 11)</h2>
+    <table class="schedule-table">
+        <thead>
+            <tr>
+                <th class="session-col">Session</th>
+                <th class="day-col">Calendar Date</th>
+                <th class="topic-col">Core Subject Matrix</th>
+                <th class="details-col">Practical Deliverable / Target</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="session-col">Session 36</td>
+                <td class="day-col">Jul 13, 2026 (Mon)</td>
+                <td class="topic-col" rowspan="2">AI Project 12: PDF Document Q&A Search Engine (Layout-Aware RAG)</td>
+                <td class="details-col" rowspan="2">Hierarchical chunking strategies mapping images, text, and tables from multi-page PDFs using PyMuPDF.</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 37</td>
+                <td class="day-col">Jul 14, 2026 (Tue)</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 38</td>
+                <td class="day-col">Jul 15, 2026 (Wed)</td>
+                <td class="topic-col" rowspan="2">AI Project 13: Local Semantic Codebase Search Engine (ChromaDB)</td>
+                <td class="details-col" rowspan="2">AST code parsing, indexing functions/classes in ChromaDB collections, and answering codebase dependencies.</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 39</td>
+                <td class="day-col">Jul 16, 2026 (Thu)</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 40</td>
+                <td class="day-col">Jul 17, 2026 (Fri)</td>
+                <td class="topic-col" rowspan="2">AI Project 14: Multi-Format Dynamic Knowledge Base Ingestor</td>
+                <td class="details-col" rowspan="2">Extractors for Notion docs, web crawls, and local markdown directories synced automatically to vector indices.</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 41</td>
+                <td class="day-col">Jul 20, 2026 (Mon)</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 42</td>
+                <td class="day-col">Jul 21, 2026 (Tue)</td>
+                <td class="topic-col" rowspan="2">AI Project 15: Context-Aware Chatbot with PostgreSQL Memory Buffer</td>
+                <td class="details-col" rowspan="2">Storing conversation state schemas in relational tables, maintaining compressed semantic history window tokens.</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 43</td>
+                <td class="day-col">Jul 22, 2026 (Wed)</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 44</td>
+                <td class="day-col">Jul 23, 2026 (Thu)</td>
+                <td class="topic-col" rowspan="2">AI Project 16: Automated Academic Paper Summarizer & Cite-Linker</td>
+                <td class="details-col" rowspan="2">Fetches arXiv papers by DOI, builds vector slices of sections, and maps citations dynamically.</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 45</td>
+                <td class="day-col">Jul 24, 2026 (Fri)</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 46</td>
+                <td class="day-col">Jul 27, 2026 (Mon)</td>
+                <td class="topic-col" rowspan="2">AI Project 17: Hybrid Keyword + Vector Search Engine (BM25 & Dense)</td>
+                <td class="details-col" rowspan="2">Implementing concurrent sparse (BM25) and dense (sentence-transformers) search tables with Reciprocal Rank Fusion (RRF).</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 47</td>
+                <td class="day-col">Jul 28, 2026 (Tue)</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 48</td>
+                <td class="day-col">Jul 29, 2026 (Wed)</td>
+                <td class="topic-col" rowspan="2">AI Project 18: Dynamic Chunk-Size Evaluator & Overlap Tuner</td>
+                <td class="details-col" rowspan="2">Building metrics to run multi-parameter search tests, finding ideal chunk sizes and overlap tokens for maximum recall.</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 49</td>
+                <td class="day-col">Jul 30, 2026 (Thu)</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 50</td>
+                <td class="day-col">Jul 31, 2026 (Fri)</td>
+                <td class="topic-col" rowspan="2">AI Project 19: High-Speed Async Scraper & Vector Database Synthesizer</td>
+                <td class="details-col" rowspan="2">Utilizing HTTPX and asyncio queues to parse thousands of documentation pages concurrently into pgvector schemas.</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 51</td>
+                <td class="day-col">Aug 03, 2026 (Mon)</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 52</td>
+                <td class="day-col">Aug 04, 2026 (Tue)</td>
+                <td class="topic-col" rowspan="2">AI Project 20: AI Video Search & Transcription Engine (VideoDB)</td>
+                <td class="details-col" rowspan="2">Video segment chunking, visual description embeddings, and transcription index overlays via VideoDB.</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 53</td>
+                <td class="day-col">Aug 05, 2026 (Wed)</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 54</td>
+                <td class="day-col">Aug 06, 2026 (Thu)</td>
+                <td class="topic-col">AI Project 21: Local Embedding Model Comparer & Benchmark Sheet</td>
+                <td class="details-col">Benchmarking latency, cosine similarity metrics, and memory overhead across three local models. (1 Day)</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 55</td>
+                <td class="day-col">Aug 07, 2026 (Fri)</td>
+                <td class="topic-col">AI Project 22: ChromaDB CLI Explorer & Schema Viewer</td>
+                <td class="details-col">Interactive terminal management interface showing active database metadata, collections, and vector shapes. (1 Day)</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="page-break"></div>
+
+    <!-- PHASE 4 -->
+    <h2 class="phase-title"><span>Phase 4:</span> Agentic Frameworks & Multi-Agent Systems (Weeks 12 - 15)</h2>
+    <table class="schedule-table">
+        <thead>
+            <tr>
+                <th class="session-col">Session</th>
+                <th class="day-col">Calendar Date</th>
+                <th class="topic-col">Core Subject Matrix</th>
+                <th class="details-col">Practical Deliverable / Target</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="session-col">Session 56</td>
+                <td class="day-col">Aug 10, 2026 (Mon)</td>
+                <td class="topic-col" rowspan="2">AI Project 23: Autonomous Market Competitor Intelligence Agent Team</td>
+                <td class="details-col" rowspan="2">Designating specialized research, analysis, and copy writing CrewAI agents executing concurrent competitor sweeps.</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 57</td>
+                <td class="day-col">Aug 11, 2026 (Tue)</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 58</td>
+                <td class="day-col">Aug 12, 2026 (Wed)</td>
+                <td class="topic-col" rowspan="2">AI Project 24: Intelligent Code Review & Automated PR Hardener Agent</td>
+                <td class="details-col" rowspan="2">LangGraph cyclic graph workflow tracing security flaws, formatting code, and writing git commit diff suggestions.</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 59</td>
+                <td class="day-col">Aug 13, 2026 (Thu)</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 60</td>
+                <td class="day-col">Aug 14, 2026 (Fri)</td>
+                <td class="topic-col" rowspan="2">AI Project 25: Self-Correcting Python Execution Sandbox Tool</td>
+                <td class="details-col" rowspan="2">Isolated subprocess runner capturing compile-time error stacks, feeding them to LLM layers, and correcting code iteratively.</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 61</td>
+                <td class="day-col">Aug 17, 2026 (Mon)</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 62</td>
+                <td class="day-col">Aug 18, 2026 (Tue)</td>
+                <td class="topic-col" rowspan="2">AI Project 26: Multi-Agent Collaborative Software Development Team</td>
+                <td class="details-col" rowspan="2">Product Manager, Architect, Coder, and QA agents executing automated sprints to compile mini-games in local files.</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 63</td>
+                <td class="day-col">Aug 19, 2026 (Wed)</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 64</td>
+                <td class="day-col">Aug 20, 2026 (Thu)</td>
+                <td class="topic-col" rowspan="2">AI Project 27: Structured Information Extractor with Strict JSON Schemas</td>
+                <td class="details-col" rowspan="2">Forcing LLM function calling to match strict Pydantic configurations for parsing dynamic CVs or invoices.</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 65</td>
+                <td class="day-col">Aug 21, 2026 (Fri)</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 66</td>
+                <td class="day-col">Aug 24, 2026 (Mon)</td>
+                <td class="topic-col" rowspan="2">AI Project 28: Interactive Customer Service Router (LangGraph Router)</td>
+                <td class="details-col" rowspan="2">Multi-node graph routing customer issues dynamically to specialized billing, tech support, or tier-2 live human agents.</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 67</td>
+                <td class="day-col">Aug 25, 2026 (Tue)</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 68</td>
+                <td class="day-col">Aug 26, 2026 (Wed)</td>
+                <td class="topic-col" rowspan="2">AI Project 29: AI Financial Portfolio Analysis & Excel Reporter Engine</td>
+                <td class="details-col" rowspan="2">Collecting stock histories, computing volatility indexes, and automatically saving reports using OpenPyXL charts.</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 69</td>
+                <td class="day-col">Aug 27, 2026 (Thu)</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 70</td>
+                <td class="day-col">Aug 28, 2026 (Fri)</td>
+                <td class="topic-col" rowspan="2">AI Project 30: Autonomous E-Commerce Search & Deal Finder Scraper</td>
+                <td class="details-col" rowspan="2">Scrapers identifying pricing differentials across Amazon, eBay, and custom vendors, formatting tabular Excel logs.</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 71</td>
+                <td class="day-col">Aug 31, 2026 (Mon)</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 72</td>
+                <td class="day-col">Sep 01, 2026 (Tue)</td>
+                <td class="topic-col" rowspan="2">AI Project 31: Human-in-the-Loop Content Editor Agent Graph</td>
+                <td class="details-col" rowspan="2">State machines stopping active execution loops, requesting manual approval via Slack/Terminal keys before file writes.</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 73</td>
+                <td class="day-col">Sep 02, 2026 (Wed)</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 74</td>
+                <td class="day-col">Sep 03, 2026 (Thu)</td>
+                <td class="topic-col">AI Project 32: Dynamic Multi-Modal Math Solver CLI (SymPy Router)</td>
+                <td class="details-col">Text parser identifying equations, delegating exact math to SymPy and abstract queries to LLM channels. (1 Day)</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 75</td>
+                <td class="day-col">Sep 04, 2026 (Fri)</td>
+                <td class="topic-col">AI Project 33: CLI Agent Shell with Chat History Compression</td>
+                <td class="details-col">Custom terminal shell program automatically summarizing distant context keys to prevent API token bloat. (1 Day)</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="page-break"></div>
+
+    <!-- PHASE 5 -->
+    <h2 class="phase-title"><span>Phase 5:</span> Multimodal Pipelines & Production MLOps (Weeks 16 - 18)</h2>
+    <table class="schedule-table">
+        <thead>
+            <tr>
+                <th class="session-col">Session</th>
+                <th class="day-col">Calendar Date</th>
+                <th class="topic-col">Core Subject Matrix</th>
+                <th class="details-col">Practical Deliverable / Target</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="session-col">Session 76</td>
+                <td class="day-col">Sep 07, 2026 (Mon)</td>
+                <td class="topic-col" rowspan="2">AI Project 34: Podcasting AI Scriptwriter & fal.ai Voice Synthesizer</td>
+                <td class="details-col" rowspan="2">Synthesizes transcripts from documents and automatically streams two-person audio dialogues via fal.ai.</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 77</td>
+                <td class="day-col">Sep 08, 2026 (Tue)</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 78</td>
+                <td class="day-col">Sep 09, 2026 (Wed)</td>
+                <td class="topic-col" rowspan="2">AI Project 35: Image-to-Text Alt-Text Generator for Accessibility</td>
+                <td class="details-col" rowspan="2">Using multimodal vision prompts to generate detailed, contextual alt-text parameters for screen readers.</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 79</td>
+                <td class="day-col">Sep 10, 2026 (Thu)</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 80</td>
+                <td class="day-col">Sep 11, 2026 (Fri)</td>
+                <td class="topic-col" rowspan="2">AI Project 36: Local LLaMA / DeepSeek Serving & Latency Profiler</td>
+                <td class="details-col" rowspan="2">Local deployment via Ollama/vLLM, monitoring memory, and calculating tokens-per-second concurrency sheets.</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 81</td>
+                <td class="day-col">Sep 14, 2026 (Mon)</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 82</td>
+                <td class="day-col">Sep 15, 2026 (Tue)</td>
+                <td class="topic-col" rowspan="2">AI Project 37: Fine-Tuning Dataset Preparator & Validation Engine</td>
+                <td class="details-col" rowspan="2">Converting raw text histories to strict ChatML formats, validating JSON syntax shapes, and compiling SFT files.</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 83</td>
+                <td class="day-col">Sep 16, 2026 (Wed)</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 84</td>
+                <td class="day-col">Sep 17, 2026 (Thu)</td>
+                <td class="topic-col" rowspan="2">AI Project 38: Low-Latency AI API Backend with FastAPI & Docker Container</td>
+                <td class="details-col" rowspan="2">FastAPI server routing models, writing Dockerfiles for secure setups, and deploying to custom cloud architectures.</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 85</td>
+                <td class="day-col">Sep 18, 2026 (Fri)</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 86</td>
+                <td class="day-col">Sep 21, 2026 (Mon)</td>
+                <td class="topic-col" rowspan="2">AI Project 39: AI API Performance Monitor & OpenTelemetry Tracing Suite</td>
+                <td class="details-col" rowspan="2">Adding OpenTelemetry filters to capture token costs, latency curves, and RAG retrieval nodes inside dashboard logs.</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 87</td>
+                <td class="day-col">Sep 22, 2026 (Tue)</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 88</td>
+                <td class="day-col">Sep 23, 2026 (Wed)</td>
+                <td class="topic-col" rowspan="3">
+                    <span class="mega-badge">The Mega Capstone</span><br>
+                    AI Project 40: Autonomous AI OS Interceptor Daemon
+                </td>
+                <td class="details-col" rowspan="3">A continuous background operating system worker that captures screen frames, runs multimodal analysis inputs, reasons actions, and executes keyboard and mouse clicks autonomously via PyAutoGUI drivers.</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 89</td>
+                <td class="day-col">Sep 24, 2026 (Thu)</td>
+            </tr>
+            <tr>
+                <td class="session-col">Session 90</td>
+                <td class="day-col">Sep 25, 2026 (Fri)</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Institutional Footer Note -->
+    <div class="footer-note">
+        ATTENTION PARTICIPANTS: Strict daily active terminal attendance policy enforced. 1.5 Hours of daily active focus required (30 mins deep architecture and 60 mins live hands-on terminal coding). Powered by The Monthly Code Club / CNC Jugaaadi System Ecosystem.
+    </div>
+
+</body>
+
+</html>

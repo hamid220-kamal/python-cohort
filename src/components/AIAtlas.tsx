@@ -38,6 +38,59 @@ import {
 
 type AtlasTab = 'Basics' | 'Roadmap' | 'Syllabus' | 'Glossary' | 'Resources';
 
+const QUIZ_QUESTIONS = [
+  {
+    question: "What is the primary difference between Traditional Code and AI?",
+    options: [
+      "AI uses more memory",
+      "Traditional code uses rules; AI finds patterns in examples",
+      "Traditional code is faster for all tasks",
+      "AI doesn't require computers to run"
+    ],
+    correct: 1
+  },
+  {
+    question: "Which phase of AI history introduced Neural Networks inspired by the brain?",
+    options: [
+      "Symbolic AI",
+      "Machine Learning",
+      "Deep Learning",
+      "Agentic AI"
+    ],
+    correct: 2
+  },
+  {
+    question: "What does 'Hallucination' refer to in LLMs?",
+    options: [
+      "The AI getting a virus",
+      "Generated text that is factually incorrect but confident",
+      "The AI running too fast",
+      "Images that look like dreams"
+    ],
+    correct: 1
+  },
+  {
+    question: "What is 'Agentic AI'?",
+    options: [
+      "A chatbot that just talks",
+      "AI that can independently use tools to complete goals",
+      "AI used by government agents only",
+      "A type of movie about robots"
+    ],
+    correct: 1
+  },
+  {
+    question: "What is Python most commonly used for in AI development?",
+    options: [
+      "Building the car chassis",
+      "Data processing and model training",
+      "Making the computer screen brighter",
+      "It is not used in AI"
+    ],
+    correct: 1
+  }
+];
+
 const AI_HISTORY = [
   {
     phase: 1,
@@ -147,7 +200,37 @@ const TOOLS_LIBRARY = [
 export function AIAtlas({ onClose }: { onClose?: () => void }) {
   const [activeTab, setActiveTab] = useState<AtlasTab>('Basics');
   const [searchQuery, setSearchQuery] = useState('');
-  const [quizScore, setQuizScore] = useState(0);
+  
+  // Quiz State
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const [userScore, setUserScore] = useState(0);
+  const [showResults, setShowResults] = useState(false);
+  const [selectedOption, setSelectedOption] = useState<number | null>(null);
+
+  const handleAnswerSelect = (optionIndex: number) => {
+    if (selectedOption !== null) return;
+    
+    setSelectedOption(optionIndex);
+    if (optionIndex === QUIZ_QUESTIONS[currentQuestionIndex].correct) {
+      setUserScore(prev => prev + 1);
+    }
+
+    setTimeout(() => {
+      if (currentQuestionIndex < QUIZ_QUESTIONS.length - 1) {
+        setCurrentQuestionIndex(prev => prev + 1);
+        setSelectedOption(null);
+      } else {
+        setShowResults(true);
+      }
+    }, 1500);
+  };
+
+  const restartQuiz = () => {
+    setCurrentQuestionIndex(0);
+    setUserScore(0);
+    setShowResults(false);
+    setSelectedOption(null);
+  };
 
   const filteredGlossary = useMemo(() => {
     return GLOSSARY_DATA.filter(item => 
@@ -269,6 +352,133 @@ export function AIAtlas({ onClose }: { onClose?: () => void }) {
                       </div>
                     </motion.div>
                   ))}
+                </div>
+              </div>
+
+              {/* Interactive Quiz Section */}
+              <div className="glass rounded-[40px] p-8 md:p-16 border border-cyan-accent/10 relative overflow-hidden">
+                <div className="absolute top-0 right-0 p-12 opacity-5 pointer-events-none">
+                   <ListChecks size={200} />
+                </div>
+                
+                <div className="max-w-3xl">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-8 h-8 bg-cyan-accent/20 rounded-lg flex items-center justify-center text-cyan-accent">
+                      <Zap size={18} />
+                    </div>
+                    <span className="text-cyan-accent font-mono text-sm font-bold uppercase tracking-widest">Basics Challenge</span>
+                  </div>
+                  
+                  <h3 className="text-4xl font-display font-bold mb-8">Test Your Knowledge</h3>
+                  
+                  <AnimatePresence mode="wait">
+                    {!showResults ? (
+                      <motion.div 
+                        key="question"
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -20 }}
+                        className="space-y-8"
+                      >
+                        <div className="space-y-2">
+                           <div className="flex justify-between items-center text-xs font-bold text-white/30 uppercase tracking-[.2em]">
+                              <span>Question {currentQuestionIndex + 1} of {QUIZ_QUESTIONS.length}</span>
+                              <span>{Math.round(((currentQuestionIndex) / QUIZ_QUESTIONS.length) * 100)}% Complete</span>
+                           </div>
+                           <div className="w-full h-1 bg-white/5 rounded-full overflow-hidden">
+                              <motion.div 
+                                className="h-full bg-cyan-accent"
+                                initial={{ width: 0 }}
+                                animate={{ width: `${((currentQuestionIndex + 1) / QUIZ_QUESTIONS.length) * 100}%` }}
+                              />
+                           </div>
+                        </div>
+
+                        <p className="text-2xl font-bold leading-tight">{QUIZ_QUESTIONS[currentQuestionIndex].question}</p>
+                        
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                           {QUIZ_QUESTIONS[currentQuestionIndex].options.map((option, idx) => {
+                             const isCorrect = idx === QUIZ_QUESTIONS[currentQuestionIndex].correct;
+                             const isSelected = selectedOption === idx;
+                             
+                             let btnClass = "glass p-6 rounded-2xl text-left transition-all border-2 ";
+                             if (selectedOption === null) {
+                               btnClass += "border-white/5 hover:border-cyan-accent/40 hover:bg-white/5";
+                             } else {
+                               if (isSelected) {
+                                 btnClass += isCorrect ? "border-green-500 bg-green-500/10" : "border-red-500 bg-red-500/10";
+                               } else if (isCorrect) {
+                                 btnClass += "border-green-500/50 bg-green-500/5";
+                               } else {
+                                 btnClass += "border-white/5 opacity-50";
+                               }
+                             }
+
+                             return (
+                               <button 
+                                 key={idx}
+                                 onClick={() => handleAnswerSelect(idx)}
+                                 disabled={selectedOption !== null}
+                                 className={btnClass}
+                               >
+                                 <div className="flex items-center gap-4">
+                                   <div className={`w-8 h-8 rounded-lg flex items-center justify-center font-bold font-mono text-sm ${
+                                     isSelected ? (isCorrect ? 'bg-green-500 text-white' : 'bg-red-500 text-white') : 'bg-white/5 text-white/40'
+                                   }`}>
+                                     {String.fromCharCode(65 + idx)}
+                                   </div>
+                                   <span className="font-medium">{option}</span>
+                                 </div>
+                               </button>
+                             );
+                           })}
+                        </div>
+                      </motion.div>
+                    ) : (
+                      <motion.div 
+                        key="results"
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        className="text-center py-12 space-y-8"
+                      >
+                         <div className="inline-block p-6 rounded-full bg-cyan-accent/10 relative">
+                            <Sparkles className="text-cyan-accent w-12 h-12" />
+                            <motion.div 
+                              className="absolute inset-0 rounded-full border-2 border-cyan-accent/30"
+                              animate={{ scale: [1, 1.2, 1], opacity: [1, 0, 1] }}
+                              transition={{ duration: 2, repeat: Infinity }}
+                            />
+                         </div>
+                         
+                         <div>
+                            <h4 className="text-3xl font-display font-bold mb-2">Quiz Completed!</h4>
+                            <p className="text-white/40">You scored <span className="text-cyan-accent font-bold">{userScore}</span> out of <span className="text-white/60">{QUIZ_QUESTIONS.length}</span></p>
+                         </div>
+                         
+                         <div className="max-w-xs mx-auto">
+                            <div className="flex justify-between text-xs font-bold mb-2 uppercase tracking-widest text-white/30">
+                               <span>Final Grade</span>
+                               <span>{Math.round((userScore / QUIZ_QUESTIONS.length) * 100)}%</span>
+                            </div>
+                            <div className="h-4 w-full bg-white/5 rounded-full overflow-hidden p-1 border border-white/10">
+                               <motion.div 
+                                 className="h-full bg-cyan-accent rounded-full"
+                                 initial={{ width: 0 }}
+                                 animate={{ width: `${(userScore / QUIZ_QUESTIONS.length) * 100}%` }}
+                                 transition={{ delay: 0.5, duration: 1 }}
+                               />
+                            </div>
+                         </div>
+
+                         <button 
+                           onClick={restartQuiz}
+                           className="bg-white text-navy-dark px-10 py-4 rounded-2xl font-bold hover:bg-cyan-accent transition-all inline-flex items-center gap-2"
+                         >
+                           Try Again <ArrowRight size={18} />
+                         </button>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
               </div>
             </motion.div>

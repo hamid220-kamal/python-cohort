@@ -225,35 +225,236 @@ function Counter({ value, suffix = "", duration = 2 }: { value: number | string,
 
 const SYLLABUS = [
   {
-    title: "Phase 1: The Foundations (Days 1-30)",
+    title: "Phase 1: Foundations & Logic (Days 1-30)",
     items: [
-      "Introduction to Python & VS Code setup",
-      "Variables, Data Types, and Operators",
-      "Control Flow: If-Else & Loops",
-      "Functions and Scope",
-      "Project: Build a Smart Command-Line Tool"
+      "Environment Setup: VS Code, Colab, & Virtual Envs",
+      "Python Basics: Data Types, Operators, & String Slicing",
+      "Control Flow: Advanced Loops & Logic Gates",
+      "Data Structures: List Comprehensions & Set Logic",
+      "Functional Programming & Recursive Logic",
+      "Project: AI-Powered Smart CLI Tool"
     ]
   },
   {
-    title: "Phase 2: Master Logic (Days 31-60)",
+    title: "Phase 2: Pro Engineering (Days 31-60)",
     items: [
-      "File I/O and Error Handling",
-      "Object-Oriented Programming (OOP) Deep Dive",
-      "Working with APIs and JSON",
-      "Advanced Data Structures (Lists, Sets, Dicts)",
-      "Project: Automated Web Scraper & Task Bot"
+      "Object Oriented Architecture & Dunder Methods",
+      "File Handling & JSON Data Serializers",
+      "NumPy for High-Performance Computation",
+      "Pandas for Advanced Data Manipulation",
+      "Web Scraping & REST API Integration",
+      "Project: Real-time Data Analyzer & Task Bot"
     ]
   },
   {
-    title: "Phase 3: The Pro Journey (Days 61-90)",
+    title: "Phase 3: AI & Deployment (Days 61-90)",
     items: [
-      "Intro to Data Science with NumPy & Pandas",
-      "Building a Web App with Flask/FastAPI",
-      "Database Integration (SQLite/Postgres)",
-      "Final Capstone Project: Portfolio-ready AI Agent",
-      "Mock Interviews & Resume Review"
+      "Machine Learning: Scikit-learn Pipelines",
+      "Deep Learning: Keras & Computer Vision",
+      "LLM Integration: Gemini & Claude API Hooks",
+      "Advanced RAG: PDF Context Retrieval Apps",
+      "Deployment: Docker, Railway, & Streamlit",
+      "Final Capstone: Autonomous AI Agent with UI"
     ]
   }
+];
+
+const PYTHON_MODULES = [
+  {
+    id: "M01",
+    title: "Environment Setup",
+    duration: "Day 1",
+    difficulty: "Beginner",
+    topics: [
+      "Installing Python & VS Code Architecture",
+      "Google Colab & REPL Interaction",
+      "Pip Package Management & venv",
+      "First Script: Execution Lifecycle"
+    ]
+  },
+  {
+    id: "M02",
+    title: "Python Basics",
+    duration: "Days 2–10",
+    difficulty: "Beginner",
+    topics: [
+      "Dynamic Typing & Type Casting",
+      "Arithmetic & Logical Operators",
+      "String Slicing & Advanced Formatting",
+      "Interactive Inputs & Multiline Logic"
+    ]
+  },
+  {
+    id: "M03",
+    title: "Control Flow",
+    duration: "Days 11–15",
+    difficulty: "Beginner",
+    topics: [
+      "Nested Conditionals & Ternary Ops",
+      "Range Function & Complex Iteration",
+      "Loop Control: Break, Continue, Pass",
+      "Avoiding Infinite State Recursion"
+    ]
+  },
+  {
+    id: "M04",
+    title: "Data Structures",
+    duration: "Days 16–22",
+    difficulty: "Beginner",
+    topics: [
+      "Lists & Memory Efficient Comprehensions",
+      "Immutable Tuples & Unpacking",
+      "Key-Value Dictionaries & Nesting",
+      "Sets: Union, Intersect, & Unique Logic"
+    ]
+  },
+  {
+    id: "M05",
+    title: "Functions",
+    duration: "Days 23–28",
+    difficulty: "Intermediate",
+    topics: [
+      "Args & Kwargs: Dynamic Params",
+      "Scope: Global vs Local Namespaces",
+      "Lambda Functions & Higher-Order Ops",
+      "Decorators & Memoization Techniques"
+    ]
+  },
+  {
+    id: "M06",
+    title: "Handling & Errors",
+    duration: "Days 29–35",
+    difficulty: "Intermediate",
+    topics: [
+      "Context Managers (with open)",
+      "JSON & CSV Data Processing",
+      "Exception Hierarchy: Try/Except/Finally",
+      "Raising Custom Enterprise Errors"
+    ]
+  },
+  {
+    id: "M07",
+    title: "OOP Python",
+    duration: "Days 36–45",
+    difficulty: "Intermediate",
+    topics: [
+      "Constructors & self keyword",
+      "Inheritance & Method Overriding",
+      "Encapsulation & Private Variables",
+      "Dunder Methods: Polymorphism Magic"
+    ]
+  },
+  {
+    id: "M08",
+    title: "Modules & Standard Library",
+    duration: "Days 46–50",
+    difficulty: "Intermediate",
+    topics: [
+      "Import Lifecycle & Aliasing",
+      "OS, Math, Sys, & Datetime Libs",
+      "Regular Expressions (re) & Itertools",
+      "Building Custom Pip Packages"
+    ]
+  },
+  {
+    id: "M09",
+    title: "Working with Data",
+    duration: "Days 51–60",
+    difficulty: "Advanced",
+    topics: [
+      "NumPy: High Speed Array Computing",
+      "Pandas: DataFrame Engineering",
+      "Data Cleaning & Outlier Filling",
+      "Visuals: Seaborn & Matplotlib Charts"
+    ]
+  },
+  {
+    id: "M10",
+    title: "Scraping & APIs",
+    duration: "Days 61–65",
+    difficulty: "Advanced",
+    topics: [
+      "Requests, BeautifulSoup & Pagination",
+      "RESTful API: GET, POST, & Auth",
+      "Parsing JSON responses in Python",
+      "Ethical Scraping & Robots.txt"
+    ]
+  },
+  {
+    id: "M11",
+    title: "Machine Learning",
+    duration: "Days 66–74",
+    difficulty: "Advanced",
+    topics: [
+      "Supervised vs Unsupervised Logic",
+      "Linear & Logistic Regression Models",
+      "Decision Trees & Random Forests",
+      "Scikit-learn Preprocessing Pipelines"
+    ]
+  },
+  {
+    id: "M12",
+    title: "Deep Learning Intro",
+    duration: "Days 75–80",
+    difficulty: "Advanced",
+    topics: [
+      "Neural Networks: Weights & Layers",
+      "TensorFlow & Keras Implementation",
+      "Computer Vision with OpenCV",
+      "Image Classification Basics"
+    ]
+  },
+  {
+    id: "M13",
+    title: "AI APIs & LLMs",
+    duration: "Days 81–85",
+    difficulty: "Advanced",
+    topics: [
+      "Gemini, Claude & OpenAI Hooks",
+      "Prompt Engineering & Sys Context",
+      "Streaming & Function Calling",
+      "RAG: Retrieval-Augmented Generation"
+    ]
+  },
+  {
+    id: "M14",
+    title: "Build & Deploy",
+    duration: "Days 86–90",
+    difficulty: "Advanced",
+    topics: [
+      "Flask vs FastAPI Microservices",
+      "Pydantic Validation & Async Code",
+      "Streamlit: Zero-CSS AI UI",
+      "Railway, Vercel & GitHub Deploy"
+    ]
+  },
+  {
+    id: "M15",
+    title: "Pro Python Bonus",
+    duration: "Bonus Content",
+    difficulty: "Pro",
+    topics: [
+      "Type Hinting & Generators",
+      "Asyncio & Non-blocking Logic",
+      "Python Logging & unitest/pytest",
+      "SQLAlchemy & MongoDB Integration"
+    ]
+  }
+];
+
+const PROJECTS = [
+  { id: 1, title: "Calculator CLI App", complexity: "Beginner" },
+  { id: 2, title: "Password Generator", complexity: "Beginner" },
+  { id: 3, title: "Quiz Game (OOP)", complexity: "Beginner" },
+  { id: 4, title: "Weather App using API", complexity: "Intermediate" },
+  { id: 5, title: "Web Scraper (News)", complexity: "Intermediate" },
+  { id: 6, title: "Data Analyzer with Pandas", complexity: "Intermediate" },
+  { id: 7, title: "Matplotlib Data Dashboard", complexity: "Intermediate" },
+  { id: 8, title: "Spam Email Classifier", complexity: "Intermediate" },
+  { id: 9, title: "House Price Predictor", complexity: "Intermediate" },
+  { id: 10, title: "Face Detection App", complexity: "Advanced" },
+  { id: 11, title: "AI Chatbot using Gemini", complexity: "Advanced" },
+  { id: 12, title: "Capstone: PDF RAG AI App", complexity: "Advanced" }
 ];
 
 const OUTCOMES = [
@@ -412,27 +613,6 @@ export default function App() {
         </motion.div>
       </section>
 
-      {/* Course Stats Section */}
-      <section className="py-24 px-6 relative">
-        <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-5 gap-4">
-          {STATS.map((stat, idx) => (
-            <motion.div 
-              key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: idx * 0.1 }}
-              viewport={{ once: true }}
-              className="glass p-8 rounded-3xl text-center group hover:bg-white/10 transition-all border-b-4 border-b-transparent hover:border-b-electric-blue"
-            >
-              <h4 className="text-4xl md:text-5xl font-display font-bold text-electric-blue mb-2">
-                <Counter value={stat.value} suffix={stat.suffix} />
-              </h4>
-              <p className="text-white/40 text-xs uppercase tracking-widest font-mono">{stat.label}</p>
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
       {/* Outcomes Grid */}
       <section id="outcomes" className="py-24 px-6 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
@@ -449,178 +629,6 @@ export default function App() {
               <p className="text-white/40 text-sm">{item.text}</p>
             </motion.div>
           ))}
-        </div>
-      </section>
-
-      {/* Syllabus Tabs */}
-      <section id="syllabus" className="py-24 px-6 max-w-5xl mx-auto">
-        <div className="text-center mb-16">
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-4xl md:text-6xl font-display font-bold mb-4 italic"
-          >
-            The 90-Day Blueprint
-          </motion.h2>
-          <p className="text-white/40">From syntax to full-scale AI application deployment.</p>
-        </div>
-
-        <div className="flex flex-col gap-12">
-          {/* Tab Navigation */}
-          <div className="glass p-2 rounded-2xl flex flex-wrap md:flex-nowrap gap-2 max-w-3xl mx-auto w-full">
-            {SYLLABUS.map((phase, idx) => (
-              <button
-                key={idx}
-                onClick={() => setActiveAccordion(idx)}
-                className={`relative flex-1 px-6 py-4 rounded-xl text-center font-bold transition-all duration-300 z-10 ${
-                  activeAccordion === idx ? 'text-white' : 'text-white/40 hover:text-white/70'
-                }`}
-              >
-                {activeAccordion === idx && (
-                  <motion.div
-                    layoutId="activeTab"
-                    className="absolute inset-0 bg-electric-blue rounded-xl -z-10 shadow-[0_0_20px_rgba(59,130,246,0.3)]"
-                    transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                  />
-                )}
-                <span className="block text-[10px] uppercase tracking-widest opacity-50 mb-1">Phase 0{idx + 1}</span>
-                <span className="whitespace-nowrap">{idx === 0 ? "Foundations" : idx === 1 ? "Logic Mastery" : "Pro Journey"}</span>
-              </button>
-            ))}
-          </div>
-
-          {/* Tab Content */}
-          <div className="min-h-[400px]">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeAccordion}
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
-                transition={{ duration: 0.3 }}
-                className="glass rounded-[40px] p-8 md:p-12 grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
-              >
-                <div>
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="w-10 h-10 bg-electric-blue/20 rounded-lg flex items-center justify-center text-electric-blue font-bold">
-                      {activeAccordion !== null ? activeAccordion + 1 : ''}
-                    </div>
-                    <h3 className="text-2xl md:text-3xl font-display font-bold">
-                      {activeAccordion !== null ? SYLLABUS[activeAccordion].title.split(': ')[1] : ''}
-                    </h3>
-                  </div>
-                  <ul className="space-y-6">
-                    {activeAccordion !== null && SYLLABUS[activeAccordion].items.map((item, i) => (
-                      <motion.li 
-                        key={i}
-                        initial={{ opacity: 0, x: -10 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: i * 0.1 }}
-                        className="flex items-start gap-4 text-white/70 group"
-                      >
-                        <div className="mt-1 w-5 h-5 rounded-full border border-cyan-accent flex items-center justify-center shrink-0 group-hover:bg-cyan-accent transition-colors">
-                          <CheckCircle2 size={12} className="text-cyan-accent group-hover:text-navy-dark transition-colors" />
-                        </div>
-                        <span className="group-hover:text-white transition-colors text-lg leading-snug">{item}</span>
-                      </motion.li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="relative group">
-                   <div className="absolute -inset-2 bg-gradient-to-r from-electric-blue to-cyan-accent rounded-3xl blur opacity-20 group-hover:opacity-40 transition-opacity" />
-                   <div className="relative glass aspect-video rounded-3xl flex items-center justify-center overflow-hidden border-2 border-white/5">
-                      <Terminal className="text-electric-blue/40 absolute -bottom-10 -right-10 w-48 h-48 -rotate-12" />
-                      <div className="z-10 text-center p-8">
-                         <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-white/10">
-                            {activeAccordion === 0 ? <Code2 className="text-electric-blue" /> : activeAccordion === 1 ? <Cpu className="text-electric-blue" /> : <Rocket className="text-electric-blue" />}
-                         </div>
-                         <p className="text-sm font-mono text-cyan-accent uppercase tracking-widest mb-2">Phase Highlight</p>
-                         <p className="text-xl font-bold italic">
-                            {activeAccordion === 0 ? "Building your first CLI tools" : activeAccordion === 1 ? "Mastering Scalable Architecture" : "Deploying Production-Ready AI"}
-                         </p>
-                      </div>
-                      {/* Decorative Code Snippet */}
-                      <div className="absolute top-4 left-4 font-mono text-[10px] text-white/10 select-none">
-                        {`def learn_python():\n  while True:\n    practice()\n    build()\n    improve()`}
-                      </div>
-                   </div>
-                </div>
-              </motion.div>
-            </AnimatePresence>
-          </div>
-        </div>
-      </section>
-
-      {/* AI Atlas Entry Section */}
-      <section className="py-24 px-6 max-w-7xl mx-auto">
-        <div className="glass rounded-[50px] p-8 md:p-20 relative overflow-hidden group">
-          <div className="absolute top-0 right-0 p-12 opacity-5 -rotate-12 group-hover:rotate-0 transition-transform duration-700">
-             <Globe size={300} />
-          </div>
-          
-          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-cyan-accent/10 border border-cyan-accent/20 text-cyan-accent text-xs font-bold uppercase tracking-widest mb-6">
-                <Sparkles size={12} /> Comprehensive Guide
-              </div>
-              <h2 className="text-5xl md:text-7xl font-display font-bold mb-8 italic">The AI Atlas</h2>
-              <div className="grid grid-cols-2 gap-x-8 gap-y-4 mb-12">
-                 {(['Basics', 'Roadmap', 'Syllabus', 'Glossary', 'Resources']).map(chapter => (
-                   <div key={chapter} className="flex items-center gap-3 text-white/50 group/item cursor-default">
-                      <div className="w-1.5 h-1.5 rounded-full bg-cyan-accent opacity-30 group-hover/item:opacity-100 transition-opacity" />
-                      <span className="font-medium group-hover/item:text-white transition-colors">{chapter}</span>
-                   </div>
-                 ))}
-              </div>
-              <p className="text-xl text-white/40 mb-10 leading-relaxed max-w-lg">
-                Discover how the technology shaping our future actually works. From Zero to Everything. Understand AI. Build the Future.
-              </p>
-              <button 
-                onClick={() => setIsAtlasOpen(true)}
-                className="bg-white text-navy-dark px-10 py-5 rounded-2xl font-bold text-lg hover:bg-cyan-accent transition-all flex items-center gap-3 shadow-xl"
-              >
-                Start Exploring <ArrowRight size={20} />
-              </button>
-            </div>
-            
-            <div className="relative">
-               <div className="glass aspect-[4/3] rounded-[40px] p-8 flex flex-col justify-between border-2 border-white/5 relative z-10">
-                  <div className="flex justify-between items-start">
-                     <div className="w-16 h-16 bg-cyan-accent rounded-2xl flex items-center justify-center text-navy-dark">
-                        <Brain size={32} />
-                     </div>
-                     <div className="text-right">
-                        <div className="text-white/20 font-mono text-xs uppercase tracking-widest">Knowledge Module</div>
-                        <div className="text-cyan-accent font-bold">100x Productivity</div>
-                     </div>
-                  </div>
-                  
-                  <div className="space-y-6">
-                     <div className="h-2 w-full bg-white/5 rounded-full overflow-hidden">
-                        <motion.div 
-                          animate={{ width: ['0%', '70%', '40%', '90%'] }}
-                          transition={{ duration: 10, repeat: Infinity }}
-                          className="h-full bg-cyan-accent/40" 
-                        />
-                     </div>
-                     <div className="space-y-2">
-                        <div className="h-4 w-3/4 bg-white/10 rounded-lg" />
-                        <div className="h-4 w-1/2 bg-white/5 rounded-lg" />
-                     </div>
-                  </div>
-
-                  <div className="flex gap-2">
-                     <div className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-[10px] font-bold">AI</div>
-                     <div className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-[10px] font-bold">ML</div>
-                     <div className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-[10px] font-bold">DL</div>
-                  </div>
-               </div>
-               {/* Decorative Background Elements */}
-               <div className="absolute -top-10 -left-10 w-40 h-40 bg-electric-blue/20 blur-[80px] rounded-full" />
-               <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-cyan-accent/10 blur-[100px] rounded-full" />
-            </div>
-          </div>
         </div>
       </section>
 
@@ -753,6 +761,203 @@ export default function App() {
         </div>
       </section>
 
+      {/* Python Roadmap Section (Know Python) */}
+      <section className="py-24 px-6 bg-[#04080f] relative overflow-hidden">
+        {/* Background blobs */}
+        <div className="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] bg-electric-blue/10 blur-[150px] rounded-full pointer-events-none" />
+        <div className="absolute -bottom-[20%] -right-[10%] w-[50%] h-[50%] bg-cyan-accent/5 blur-[150px] rounded-full pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto relative z-10">
+           <div className="text-center mb-20">
+              <motion.div 
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-cyan-accent/10 border border-cyan-accent/20 text-cyan-accent text-xs font-bold uppercase tracking-widest mb-6"
+              >
+                <Code2 size={12} /> 180+ Topics Covered
+              </motion.div>
+              <h2 className="text-5xl md:text-8xl font-display font-bold mb-6 tracking-tighter">Complete Python <br/> <span className="text-cyan-accent italic">Roadmap — Basics to Pro</span></h2>
+              <p className="text-xl text-white/40 max-w-3xl mx-auto">Master everything from your first variable to deploying neural networks at scale. Your logical journey starts here.</p>
+           </div>
+
+           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
+              {PYTHON_MODULES.map((module, idx) => (
+                <motion.div 
+                  key={module.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: (idx % 3) * 0.1 }}
+                  className="glass p-8 rounded-[32px] border border-white/5 hover:border-cyan-accent/30 transition-all group flex flex-col h-full bg-white/[0.02]"
+                >
+                   <div className="flex justify-between items-start mb-6">
+                      <div className="px-3 py-1 rounded-lg bg-cyan-accent/10 text-cyan-accent font-mono text-[10px] font-bold tracking-widest uppercase">
+                        {module.id}
+                      </div>
+                      <div className={`px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-tighter ${
+                        module.difficulty === 'Beginner' ? 'bg-green-500/10 text-green-500 border border-green-500/20' : 
+                        module.difficulty === 'Intermediate' ? 'bg-amber-500/10 text-amber-500 border border-amber-500/20' : 
+                        module.difficulty === 'Advanced' ? 'bg-red-500/10 text-red-500 border border-red-500/20' : 'bg-cyan-accent/10 text-cyan-accent border border-cyan-accent/20'
+                      }`}>
+                         {module.difficulty}
+                      </div>
+                   </div>
+                   <h3 className="text-2xl font-display font-bold mb-2 group-hover:text-cyan-accent transition-colors">{module.title}</h3>
+                   <p className="text-white/30 text-xs font-mono mb-6 flex items-center gap-2">
+                       <Zap size={10} className="text-cyan-accent" /> {module.duration}
+                   </p>
+                   <ul className="space-y-3 flex-1 mb-8">
+                      {module.topics.map((topic, i) => (
+                        <li key={i} className="text-sm text-white/50 flex items-start gap-2 leading-tight">
+                           <div className="w-1 h-1 rounded-full bg-white/20 mt-1.5 shrink-0" />
+                           {topic}
+                        </li>
+                      ))}
+                   </ul>
+                   <div className="pt-6 border-t border-white/5 flex justify-between items-center opacity-40 group-hover:opacity-100 transition-opacity">
+                      <span className="text-[10px] font-mono font-bold uppercase tracking-widest">Logic Mastery</span>
+                      <ChevronDown size={14} className="group-hover:-rotate-90 transition-transform" />
+                   </div>
+                </motion.div>
+              ))}
+           </div>
+
+           {/* Projects Section */}
+           <div className="glass rounded-[40px] p-8 md:p-16 border border-white/5 bg-white/[0.01]">
+              <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-16">
+                 <div>
+                    <h3 className="text-4xl md:text-6xl font-display font-bold mb-4">12 Major Projects</h3>
+                    <p className="text-white/40 text-lg">Build one project per week. Portfolios aren't built on slides.</p>
+                 </div>
+                 <div className="px-6 py-3 rounded-2xl bg-electric-blue/10 border border-electric-blue/20 text-electric-blue font-bold">
+                    Capstone: PDF RAG System
+                 </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                 {PROJECTS.map((project) => (
+                   <div key={project.id} className="glass p-6 rounded-2xl border border-white/5 hover:bg-white/5 transition-all group">
+                      <div className="text-white/20 font-mono text-xs mb-3">Project {project.id < 10 ? `0${project.id}` : project.id}</div>
+                      <h4 className="font-bold text-white mb-2 leading-tight group-hover:text-cyan-accent transition-colors">{project.title}</h4>
+                      <div className={`text-[9px] uppercase font-bold tracking-widest ${
+                        project.complexity === 'Beginner' ? 'text-green-500' : project.complexity === 'Intermediate' ? 'text-amber-500' : 'text-red-500'
+                      }`}>
+                         {project.complexity}
+                      </div>
+                   </div>
+                 ))}
+              </div>
+           </div>
+
+           {/* Stack/Tools section */}
+           <div className="mt-24 grid grid-cols-1 md:grid-cols-4 gap-8">
+              {[
+                { title: "Code Editors", items: ["VS Code", "PyCharm", "Colab", "Jupyter"] },
+                { title: "Practice", items: ["HackerRank", "LeetCode", "Kaggle"] },
+                { title: "AI Stack", items: ["Gemini 1.5", "Claude 3.5", "GPT-4o", "FAISS"] },
+                { title: "Deployment", items: ["Railway", "Vercel", "Streamlit", "Docker"] }
+              ].map((stack, i) => (
+                <div key={i} className="space-y-4">
+                   <h4 className="text-xs uppercase font-mono font-black text-white/30 tracking-[0.2em]">{stack.title}</h4>
+                   <div className="flex flex-wrap gap-2">
+                      {stack.items.map(item => (
+                        <span key={item} className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-white/60">{item}</span>
+                      ))}
+                   </div>
+                </div>
+              ))}
+           </div>
+        </div>
+      </section>
+
+      {/* 90-Day Blueprint Detailed Section */}
+      <section id="syllabus" className="py-24 px-6 max-w-7xl mx-auto relative">
+        <div className="text-center mb-20">
+          <motion.h2 
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="text-5xl md:text-7xl font-display font-bold mb-4 tracking-tighter italic text-white underline decoration-electric-blue/50 underline-offset-8"
+          >
+            The 90-Day Blueprint
+          </motion.h2>
+          <p className="text-xl text-white/40">From syntax to full-scale AI application deployment.</p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+          {SYLLABUS.map((phase, idx) => (
+            <div 
+              key={idx} 
+              onClick={() => setActiveAccordion(idx)}
+              className={`p-8 rounded-3xl border-2 transition-all cursor-pointer ${
+                activeAccordion === idx ? "bg-electric-blue/10 border-electric-blue/30" : "bg-white/5 border-white/10 hover:border-white/20"
+              } flex flex-col items-center text-center group`}
+            >
+              <span className={`text-xs font-mono font-bold ${activeAccordion === idx ? "text-electric-blue" : "text-white/40"} mb-2 tracking-widest uppercase`}>Phase 0{idx + 1}</span>
+              <h3 className="text-2xl font-bold text-white">{phase.title.split(': ')[1]}</h3>
+            </div>
+          ))}
+        </div>
+
+        <div className="glass rounded-[50px] p-8 md:p-16 border-2 border-electric-blue/20 bg-electric-blue/[0.02] relative overflow-hidden group min-h-[500px]">
+          <div className="absolute top-0 right-0 p-12 opacity-5 -rotate-12 group-hover:rotate-0 transition-transform duration-700 pointer-events-none text-electric-blue">
+             {activeAccordion === 0 ? <Rocket size={350} /> : activeAccordion === 1 ? <Cpu size={350} /> : <Brain size={350} />}
+          </div>
+          
+          <AnimatePresence mode="wait">
+            <motion.div 
+              key={activeAccordion}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center relative z-10"
+            >
+              <div>
+                <div className="flex items-center gap-4 mb-8">
+                  <div className="w-16 h-16 bg-electric-blue rounded-full flex items-center justify-center text-3xl font-black text-white shadow-[0_0_30px_rgba(59,130,246,0.3)]">
+                    {activeAccordion !== null ? activeAccordion + 1 : 1}
+                  </div>
+                  <div>
+                    <h3 className="text-3xl font-display font-bold text-white">{activeAccordion !== null ? SYLLABUS[activeAccordion].title.split(': ')[1] : ''}</h3>
+                    <p className="text-electric-blue font-bold tracking-widest uppercase text-xs">{activeAccordion === 0 ? 'Days 1-30' : activeAccordion === 1 ? 'Days 31-60' : 'Days 61-90'}</p>
+                  </div>
+                </div>
+                
+                <ul className="space-y-4">
+                  {activeAccordion !== null && SYLLABUS[activeAccordion].items.map((item, i) => (
+                    <li key={i} className="flex items-center gap-4 text-white/70 group/item">
+                      <div className="w-2 h-2 rounded-full bg-electric-blue group-hover/item:scale-150 transition-transform" />
+                      <span className="group-hover/item:text-white transition-colors">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="mt-10 p-6 glass rounded-2xl border-l-4 border-l-electric-blue bg-white/[0.02]">
+                   <p className="text-xs font-mono text-white/40 uppercase tracking-widest mb-1 font-bold">Capstone Project</p>
+                   <p className="text-xl font-bold text-white italic">
+                      {activeAccordion === 0 ? "Build a Smart Command-Line Tool" : activeAccordion === 1 ? "Real-time Data Analyzer & Task Bot" : "Autonomous AI Agent with UI"}
+                   </p>
+                </div>
+              </div>
+
+              <div className="relative">
+                 <div className="aspect-square glass rounded-[40px] flex flex-col items-center justify-center text-center p-10 border-2 border-white/5 shadow-2xl group/card relative z-10 transition-all hover:scale-[1.02]">
+                    <div className="w-24 h-24 bg-electric-blue/20 rounded-3xl flex items-center justify-center text-electric-blue mb-6 group-hover/card:bg-electric-blue group-hover/card:text-white transition-all">
+                       {activeAccordion === 0 ? <Terminal size={48} /> : activeAccordion === 1 ? <Database size={48} /> : <Smartphone size={48} />}
+                    </div>
+                    <p className="text-xs font-mono text-cyan-accent uppercase tracking-widest mb-2 font-bold">Phase Highlight</p>
+                    <h4 className="text-3xl font-display font-bold leading-tight">
+                        {activeAccordion === 0 ? "Building your first CLI tools" : activeAccordion === 1 ? "Mastering Data Pipelines" : "Deploying Production AI"}
+                    </h4>
+                 </div>
+                 {/* Glowing effect */}
+                 <div className="absolute -top-10 -right-10 w-40 h-40 bg-electric-blue/20 blur-[80px] rounded-full -z-10" />
+                 <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-cyan-accent/10 blur-[60px] rounded-full -z-10" />
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+      </section>
+
       {/* Mentor Section */}
       <section id="mentor" className="py-24 px-6 overflow-hidden">
         <div className="max-w-7xl mx-auto">
@@ -876,12 +1081,6 @@ export default function App() {
             <p className="text-white/50 text-lg mb-10 max-w-2xl mx-auto">Limited seats available for the upcoming cohort. Hamid teaches this session personally to ensures everyone hits their 90-day goal.</p>
             
             <div className="inline-flex flex-col items-center gap-8 mb-12 relative">
-               <div className="bg-white/5 backdrop-blur-md px-8 py-3 rounded-2xl border border-white/10">
-                  <span className="text-white/40 line-through mr-3 text-lg">₹2,999</span>
-                  <span className="text-3xl font-display font-bold text-cyan-accent">₹999 <span className="text-sm font-normal text-white">only</span></span>
-                  <div className="text-[10px] uppercase tracking-widest text-electric-blue mt-1 font-bold">Early Bird Offer — 66% OFF</div>
-               </div>
-               
                <button 
                 onClick={() => setIsEnrollModalOpen(true)}
                 className="bg-electric-blue hover:bg-blue-600 px-12 py-6 rounded-2xl font-bold text-2xl shadow-[0_0_40px_rgba(59,130,246,0.5)] hover:scale-105 transition-all flex items-center gap-3"
